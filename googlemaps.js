@@ -9,9 +9,9 @@ class GoogleMaps{
   }
 
   initMap(){
-    var myLatLong = {lat: -25.363, lng: 131.044};
+    var myLatLong = {lat: 33.6846, lng: -117.7946};
     this.map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
+    center: {lat: 33.6846, lng: -117.7946},
     zoom: 8});
 
 
@@ -19,7 +19,7 @@ class GoogleMaps{
 
   addMarker(){
     var marker = new google.maps.Marker({
-    position: myLatLong,
+    position: {lat: 33.6846, lng: -117.7946},
     map: this.map,
     title: 'Click to Zoom'
 
