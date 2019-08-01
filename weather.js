@@ -37,10 +37,10 @@ class Weather {
   render() {
     this.weatherDiv.empty();
 
-    this.weatherContainer = $("<p>");
+    //this.weatherContainer = $("<p>");
     this.weatherConditionContainer = $("<p>");
 
-    this.weatherContainer.append(`${this.weatherCity} | IMG`);
+    //this.weatherContainer.append(`${this.weatherCity} | IMG`);
     this.weatherConditionContainer.append(`${this.mainTemp} | ${this.mainWeather}`);
 
     this.weatherDiv.append(this.weatherContainer, this.weatherConditionContainer);
