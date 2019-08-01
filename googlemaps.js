@@ -1,7 +1,7 @@
 class GoogleMaps{
   constructor(lat, lng){
     this.lat = null;
-    this.lan = null;
+    this.lng = null;
     this.map = map;
     this.initMap = this.initMap.bind(this);
     this.addEventHandler = this.addEventHandler.bind(this);
