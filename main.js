@@ -3,9 +3,9 @@ $(document).ready(initializeApp);
 let gmap;
 function initializeApp(){
     // Click handler
-    //var location = document.getElementById('search').value;
+    //var location = document.getElementById('#cityInput').value;
    // const gmap = new GoogleMaps(33.6 , -117);
-   const gmap = new GoogleMaps('Irvine');
+   const gmap = new GoogleMaps("Irvine");
     gmap.initMap();
    
 
