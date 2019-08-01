@@ -48,7 +48,6 @@ class Flickr {
     }).css(
       "background-image", `url(https://farm${this.flickrFarm}.staticflickr.com/${this.flickrServer}/${this.flickrID}_${this.flickrSecret}.jpg)`
     );
-
     this.flickrDiv.append(this.flickrImage);
   }
 }
