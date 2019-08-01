@@ -1,9 +1,9 @@
 class Yelp{
-    constructor(){
+    constructor(lat, lng){
         this.data = {};
         this.location = 'Irvine';
-        this.lat = null;
-        this.lng = null;
+        this.lat = lat;
+        this.lng = lng;
         this.term = '';
     }
     addEventHandlers(){
@@ -29,8 +29,7 @@ class Yelp{
         }).fail((jqXHR, textStatus, errorThrown) => console.log(jqXHR, textStatus, errorThrown) )
         .always( (data, textStatus, jqXHR) => console.log("Promise Completion Callback", data, textStatus, jqXHR))
     }
-
+    render(){
+        
+    }
 }
-
-"Authorization": "Bearer 
-"M3S7kd9LGDSgQq4a-CGJfRTTp6RbPZRmqvCO4-fsTFctm92rRn94jm7jSchf0Jnfg4o_OhR4MpeZN7x3mdt6Rhn7v2mz4aFGBGNsaNDaA37z7DCpEfMKnK6mAhVCXXYx"
