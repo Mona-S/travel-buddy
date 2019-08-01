@@ -7,14 +7,15 @@ class GoogleMaps{
     this.addEventHandler = this.addEventHandler.bind(this);
     this.handleMapClick = this.handleMapClick.bind(this);
   }
+  getLatLng(){
+    return [this.lat, this.lng];
+  }
 
   initMap(){
     var myLatLong = {lat: this.lat, lng: this.lng};
     this.map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: this.lat, lng: this.lng},
     zoom: 8});
-
-
   }
 
   addMarker(){
@@ -22,7 +23,6 @@ class GoogleMaps{
     position: {lat: this.lat, lng: this.lng},
     map: this.map,
     title: 'Click to Zoom'
-
   });
 }
 
