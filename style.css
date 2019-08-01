@@ -1,9 +1,77 @@
-#map {
-    height: 75%;
-  }
-  /* Optional: Makes the sample page fill the window. */
+
   html, body {
-    height: 100%;
+    display: inline-block;
+    height: 100vh;
+    width: 100vw;
     margin: 0;
     padding: 0;
+    background-color: lightblue;
   }
+
+  .container1{
+    height: 100%;
+    width: 67%;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    float: left;
+    position: relative;
+
+  }
+
+  #map {
+    height: 80%;
+    margin-top: 80px;
+  }
+
+  .search{
+    display: inline-block;
+
+  }
+
+  .container2{
+    font-size: 40px;
+    height: 100%;
+    width: 33%;
+    margin-top: 1%;
+    margin-left: 0%;
+    display: inline-block;
+    float: right;
+    color:lightpink;
+    font-family: cursive,sans-serif;
+    position: absolute;
+
+  }
+
+  .flickr{
+    display: inline-block;
+    background-color: salmon;
+    height: 30%;
+    width:20%;
+
+
+
+  }
+
+  .weather{
+    display: inline-block;
+    background-color: lightgrey;
+    height: 30%;
+    width:20%;
+
+
+  }
+
+  .yelp{
+    display: inline-block;
+    background-color: lightyellow;
+    height: 30%;
+    width:20%;
+
+
+  }
+
+
+
+ 
+    
