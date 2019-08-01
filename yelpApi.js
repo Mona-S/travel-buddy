@@ -42,15 +42,15 @@ class Yelp{
                 this.phone = b.phone;
                 this.price = b.price;
                 this.rating = b.rating;
-                this.location = b.location;
+                this.location = b.location.address1;
                 const businessContainerClone = $("#templates > .businessContainer").clone();
-                // $('.imageContainer').css('background-image', `url(${this.image})`);
                 businessContainerClone.find('.imageContainer').css('background-image', `url(${this.image})`);
                 businessContainerClone.find('.name').text(this.name);
-                businessContainerClone.find('.phone').text(this.phone);
-                businessContainerClone.find('.price').text(this.price);
-                businessContainerClone.find('.rating').text(this.rating);
-                //let result = $('<div>').append(this.name, this.phone, this.price, this.rating, this.location);
+                businessContainerClone.find('.phone').text('T: ' + this.phone);
+                businessContainerClone.find('.price').text('Price '+ this.price);
+                businessContainerClone.find('.rating').text('Rating: ' + this.rating);
+                businessContainerClone.find('.locationInfo').text(this.location);
+                
                 $('.yelp').append(businessContainerClone);
             }
         }).fail((jqXHR, textStatus, errorThrown) => console.log(jqXHR, textStatus, errorThrown) )
