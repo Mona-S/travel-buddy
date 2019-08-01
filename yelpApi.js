@@ -12,7 +12,10 @@ class Yelp{
         this.image = null;
         
     }
-    addEventHandlers(){
+    getLocationData(){
+        this.lat = null;
+        this.lng = null;
+        this.getYelpData();
     }
     getYelpData(){
         const api = 'M3S7kd9LGDSgQq4a-CGJfRTTp6RbPZRmqvCO4-fsTFctm92rRn94jm7jSchf0Jnfg4o_OhR4MpeZN7x3mdt6Rhn7v2mz4aFGBGNsaNDaA37z7DCpEfMKnK6mAhVCXXYx'
@@ -31,6 +34,7 @@ class Yelp{
             }
         }).done( (data, status, jqXHR) => {
             console.log(data, status);
+            $('.yelp').empty();
             for (let b of data.businesses){
                 this.image = b.image_url;
                 console.log(this.image);

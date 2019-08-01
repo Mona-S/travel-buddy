@@ -5,8 +5,8 @@ function initializeApp(){
     // Click handler
     //var location = document.getElementById('search').value;
    // const gmap = new GoogleMaps(33.6 , -117);
-   const gmap = new GoogleMaps('Irvine');
-    gmap.initMap();
+  gmap = new GoogleMaps('Irvine');
+  gmap.initMap();
    
 
     //const gloc = new Geocode('Irvine');
@@ -19,7 +19,9 @@ function initializeApp(){
     $("#flickrAndWeather").on("click", function(){
         weather.cityInput = $("#cityInput").val();
         flickr.cityInput = $("#cityInput").val();
+        yelp.location = $("#cityInput").val(); 
         weather.getWeather();
         flickr.getFlickr();
+        yelp.getLocationData();
     });
 }
