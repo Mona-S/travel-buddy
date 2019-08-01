@@ -37,7 +37,7 @@
     margin-left: 0%;
     display: inline-block;
     float: right;
-    color:lightpink;
+    
     font-family: cursive,sans-serif;
     position: absolute;
 
@@ -64,15 +64,15 @@
   }
   .businessContainer{
     border-bottom: 1px solid black;
-    height: 25vh;
+    height: 20vh;
     width: 100%;
     background-color: white;
     font-size: 1rem;
+    text-align: center;
   }
   .businessContainer .name{
     font-weight: bold;
     font-size: 120%;
-    color: yellow;
   }
   .businessContainer:nth-child(even){
     background-color: lightgrey;
@@ -82,14 +82,15 @@
   }
   .priceRatingContainer > *{
     width: 100%;
-    text-align: center;
+   
   }
   .businessContainer .locationInfo{
     font-weight: bold;
+   
   }
   .imageContainer{
-    height: 10vmin;
-    width: 10vmin;
+    height: 20vmin;
+    width: 20vmin;
     background-size: 100% 100%;
     float: left;
   }
