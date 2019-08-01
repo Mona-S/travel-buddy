@@ -8,7 +8,11 @@ function initializeApp(){
     const yelp = new Yelp(33.6 , -117);
     yelp.getYelpData();
     const weather = new Weather;
-    $("#flickrAndWeather").on("click", weather.getWeather );
-
-
+    const flickr = new Flickr;
+    $("#flickrAndWeather").on("click", function(){
+        weather.cityInput = $("#cityInput").val();
+        flickr.cityInput = $("#cityInput").val();
+        weather.getWeather();
+        flickr.getFlickr();
+    });
 }

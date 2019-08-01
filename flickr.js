@@ -1,49 +1,51 @@
 
-class Weather {
+
+class Flickr {
   constructor() {
-    this.cityInput = $("#cityInput").val();
-    this.weatherKey = "1bbacff3b2de1a2d552fd93a8e0e8ef1";
-    this.weatherDiv = $(".weather");
-    this.getWeather = this.getWeather.bind(this);
-    console.log("weather button clicked");
+    this.cityInput;
+    this.flickrKey = "519af7a34f396e6aa28316470a83ca88";
+    this.flickrDiv = $(".flickr");
+    this.getFlickr = this.getFlickr.bind(this);
   }
 
-  getWeather() {
-    debugger;
+  getFlickr() {
     let ajaxConfigObject = {
-      url: "http://api.openweathermap.org/data/2.5/weather",
+      url: "https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=519af7a34f396e6aa28316470a83ca88&format=json&nojsoncallback=1&text=" + this.cityInput + '"',
+      api_key: this.flickrKey,
       dataType: "json",
-      data: {
-        q: this.cityInput,
-        appid: this.weatherKey,
-        units: "imperial"
-      },
 
-    success: function( data, status) {
-      console.log("weather data: ", data);
-      console.log("weather success status: ", status);
+      success: function (data, status) {
+      /* get rid of later */
+        console.log("flickr data: ", data);
+        console.log("flickr success status: ", status);
 
-      this.weatherCity = data.name;
-      this.country = data.sys.country;
-      this.mainTemp = data.main.temp;
-      this.mainWeather = data.weather[0].main;
+        this.filePath = data.photos.photo[0];
+        this.flickrFarm = this.filePath["farm"];
+        this.flickrServer = this.filePath["server"];
+        this.flickrID = this.filePath["id"];
+        this.flickrSecret = this.filePath["secret"];
 
-      this.render();
+        /* get rid of later */
+        this.flickerTitle = this.filePath["title"];
+        console.log("title: ", this.flickerTitle);
+
+        this.render();
+
       }.bind(this),
-      error: function( data, status) {
-        console.log("weather error status: ", status);
+
+      error: function (data, status) {
+        console.log("flickr error status: ", status)
       }
     }
-    $.ajax(ajaxConfigObject)
+    $.ajax(ajaxConfigObject);
   }
 
+
   render() {
-    this.weatherContainer = $("<p>");
-    this.weatherConditionContainer = $("<p>");
+    this.flickrDiv.empty();
 
-    this.weatherContainer.append(`${this.weatherCity} | ${this.country} | IMG`);
-    this.weatherConditionContainer.append(`${this.mainTemp}F | ${this.mainWeather}`);
+    this.flickrImage = $("<img>").attr("src", `https://farm${this.flickrFarm}.staticflickr.com/${this.flickrServer}/${this.flickrID}_${this.flickrSecret}.jpg`);
 
-    this.weatherDiv.append(this.weatherContainer, this.weatherConditionContainer);
+    this.flickrDiv.append(this.flickrImage);
   }
 }
