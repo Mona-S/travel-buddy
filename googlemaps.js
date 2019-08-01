@@ -44,8 +44,8 @@ class GoogleMaps{
     if(this.marker){this.setMapOnAll(null)};
     const marker = new google.maps.Marker({
         position: {lat: this.lat, lng: this.lng},
-    map: this.map,
-    title: 'Click to Zoom'
+    map: this.map
+    
   }); 
     this.marker = marker;
     console.log('here' , this.lat, this.lng);
