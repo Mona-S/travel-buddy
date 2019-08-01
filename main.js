@@ -18,9 +18,13 @@ function initMap() {
         lat = event.latLng.lat();
         lng = event.latLng.lng();
         console.log(lat, lng);
-       
     });  
-
-    
 }
 
+// class GoogleMap{
+//   constructor(){
+//     this.lat = null;
+//     this.lng = null;
+
+//   }
+// }
