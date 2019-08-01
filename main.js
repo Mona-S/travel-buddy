@@ -7,6 +7,8 @@ function initializeApp(){
     gmap.addEventHandler();
     const yelp = new Yelp(33.6 , -117);
     yelp.getYelpData();
+    const weather = new Weather;
+    $("#flickrAndWeather").on("click", weather.getWeather );
+
 
 }
-
