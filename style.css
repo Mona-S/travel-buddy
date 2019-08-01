@@ -51,7 +51,7 @@
 
 
 
-  }
+  } */
 
   .weather{
     
@@ -71,6 +71,40 @@
 
   }
 
+  #templates{
+    display: none;
+  }
+  .businessContainer{
+    border-bottom: 1px solid black;
+    height: 25vh;
+    width: 100%;
+    background-color: white;
+    font-size: 1rem;
+  }
+  .businessContainer .name{
+    font-weight: bold;
+    font-size: 120%;
+    color: yellow;
+  }
+  .businessContainer:nth-child(even){
+    background-color: lightgrey;
+  }
+  .businessContainer .priceRatingContainer{
+    display: flex;
+  }
+  .priceRatingContainer > *{
+    width: 100%;
+    text-align: center;
+  }
+  .businessContainer .locationInfo{
+    font-weight: bold;
+  }
+  .imageContainer{
+    height: 10vmin;
+    width: 10vmin;
+    background-size: 100% 100%;
+    float: left;
+  }
 
 
  

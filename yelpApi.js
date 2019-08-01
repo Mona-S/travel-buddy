@@ -5,9 +5,14 @@ class Yelp{
         this.lat = lat;
         this.lng = lng;
         this.term = '';
+        this.name = '';
+        this.phone = '';
+        this.price = '';
+        this.rating = '';
+        this.image = null;
+        
     }
     addEventHandlers(){
-
     }
     getYelpData(){
         const api = 'M3S7kd9LGDSgQq4a-CGJfRTTp6RbPZRmqvCO4-fsTFctm92rRn94jm7jSchf0Jnfg4o_OhR4MpeZN7x3mdt6Rhn7v2mz4aFGBGNsaNDaA37z7DCpEfMKnK6mAhVCXXYx'
@@ -26,10 +31,28 @@ class Yelp{
             }
         }).done( (data, status, jqXHR) => {
             console.log(data, status);
+            for (let b of data.businesses){
+                this.image = b.image_url;
+                console.log(this.image);
+                this.name = b.name;
+                this.phone = b.phone;
+                this.price = b.price;
+                this.rating = b.rating;
+                this.location = b.location;
+                const businessContainerClone = $("#templates > .businessContainer").clone();
+                // $('.imageContainer').css('background-image', `url(${this.image})`);
+                businessContainerClone.find('.imageContainer').css('background-image', `url(${this.image})`);
+                businessContainerClone.find('.name').text(this.name);
+                businessContainerClone.find('.phone').text(this.phone);
+                businessContainerClone.find('.price').text(this.price);
+                businessContainerClone.find('.rating').text(this.rating);
+                //let result = $('<div>').append(this.name, this.phone, this.price, this.rating, this.location);
+                $('.yelp').append(businessContainerClone);
+            }
         }).fail((jqXHR, textStatus, errorThrown) => console.log(jqXHR, textStatus, errorThrown) )
         .always( (data, textStatus, jqXHR) => console.log("Promise Completion Callback", data, textStatus, jqXHR))
     }
     render(){
-        
+        //
     }
 }

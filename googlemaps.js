@@ -12,6 +12,9 @@ class GoogleMaps{
     this.addMarker = this.addMarker.bind(this);
   
   }
+  getLatLng(){
+    return [this.lat, this.lng];
+  }
 
   initMap(){
    
