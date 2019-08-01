@@ -44,29 +44,29 @@
   }
 
   .flickr{
-    display: inline-block;
+    
     background-color: salmon;
-    height: 30%;
-    width:20%;
+    height: 20%;
+    width:100%;
 
 
 
   }
 
   .weather{
-    display: inline-block;
+    
     background-color: lightgrey;
-    height: 30%;
-    width:20%;
+    height: 40%;
+    width:100%;
 
 
   }
 
   .yelp{
-    display: inline-block;
+   
     background-color: lightyellow;
-    height: 30%;
-    width:20%;
+    height: 40%;
+    width:100%;
 
 
   }
