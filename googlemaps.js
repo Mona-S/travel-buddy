@@ -1,7 +1,7 @@
 class GoogleMaps{
   constructor(lat, lng){
-    this.lat = null;
-    this.lan = null;
+    this.lat = lat;
+    this.lan = lng;
     this.map = map;
     this.initMap = this.initMap.bind(this);
     this.addEventHandler = this.addEventHandler.bind(this);
@@ -33,38 +33,6 @@ class GoogleMaps{
     this.lat = event.latLng.lat();
     this.lng = event.latLng.lng();
     console.log(this.lat, this.lng);
+    this.addMarker();
   }
 }
-
-
-
-
-
-
-// let lat = null;
-// let lng = null;
-
-// function initMap() {
-//     const myLatLong = {lat: -25.363, lng: 131.044};
-//     const map = new google.maps.Map(document.getElementById('map'), {
-//       center: {lat: -34.397, lng: 150.644},
-//       zoom: 8
-//     });
-
-//     const marker = new google.maps.Marker({
-//       position: myLatLong,
-//       map: map,
-//       title: 'Click to Zoom'
-//     });
-    
-//     google.maps.event.addListener(map, 'click', function(event){ 
-//         lat = event.latLng.lat();
-//         lng = event.latLng.lng();
-//         console.log(lat, lng);
-       
-//     });  
-
-    
-// }
-
- 
