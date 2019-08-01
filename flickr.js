@@ -43,9 +43,11 @@ class Flickr {
 
   render() {
     this.flickrDiv.empty();
-
-    this.flickrImage = $("<img>").attr("src", `https://farm${this.flickrFarm}.staticflickr.com/${this.flickrServer}/${this.flickrID}_${this.flickrSecret}.jpg`).attr("width","100%");
-    console.log("flickr image: ", this.flickrImage);
+    this.flickrImage = $("<div>", {
+      "class": "flickrImage"
+    }).css(
+      "background-image", `url(https://farm${this.flickrFarm}.staticflickr.com/${this.flickrServer}/${this.flickrID}_${this.flickrSecret}.jpg)`
+    );
     this.flickrDiv.append(this.flickrImage);
   }
 }

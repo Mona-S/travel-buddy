@@ -36,13 +36,13 @@ class Weather {
 
   render() {
     this.weatherDiv.empty();
-
-    //this.weatherContainer = $("<p>");
+    this.spacingContainer = $("<span>").text("   |   ").css({
+      "padding-left": "10px",
+      "padding-right": "10px",
+      "font-weight": "bold"
+    });
     this.weatherConditionContainer = $("<p>");
-
-    //this.weatherContainer.append(`${this.weatherCity} | IMG`);
-    this.weatherConditionContainer.append(`${this.mainTemp} | ${this.mainWeather}`);
-
+    this.weatherConditionContainer.append(this.mainTemp, this.spacingContainer, this.mainWeather);
     this.weatherDiv.append(this.weatherContainer, this.weatherConditionContainer);
   }
 }

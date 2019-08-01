@@ -65,8 +65,7 @@
   .flickr{
     height: 20%;
     width:100%;
-    background-size: contain;
-  } 
+  }
 
   .weather{
     background-color: lightblue;
@@ -120,7 +119,8 @@
     background-size: 100% 100%;
     float: left;
   }
-
-
- 
-    
+  .flickrImage {
+    height: 100%;
+    width: 100%;
+    background-size: contain
+  }
