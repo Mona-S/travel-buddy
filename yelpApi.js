@@ -1,7 +1,7 @@
 class Yelp{
-    constructor(lat, lng){
+    constructor(lat, lng, location){
         this.data = {};
-        this.location = 'Irvine';
+        this.location = location;
         this.lat = lat;
         this.lng = lng;
         this.term = '';

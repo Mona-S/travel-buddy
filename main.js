@@ -12,7 +12,7 @@ function initializeApp(){
     //const gloc = new Geocode('Irvine');
     //gloc.geocodeAddress();
     gmap.addEventHandler();
-    const yelp = new Yelp(33.6 , -117);
+    const yelp = new Yelp(33.6 , -117, "Irvine");
     yelp.getYelpData();
     const weather = new Weather;
     const flickr = new Flickr;

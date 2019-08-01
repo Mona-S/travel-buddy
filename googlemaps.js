@@ -14,7 +14,7 @@ class GoogleMaps{
   }
 
   initMap(){
-    //var myLatLong = {lat: this.lat, lng: this.lng};
+   
     var geocoder = new google.maps.Geocoder()
     geocoder.geocode({'address': this.address}, function(results, status) {
       if (status === 'OK') {
