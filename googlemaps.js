@@ -57,20 +57,11 @@ class GoogleMaps{
     this.map.setCenter(this.marker.getPosition());
 }
     
-  }
-
-  handleMarkerClick(){
-    map.setZoom(8);
-    map.setCenter(this.marker.getposition());
-  }
-
-
   handleMapClick(event){
     this.lat = event.latLng.lat();
     this.lng = event.latLng.lng();
     this.addMarker();
     this.handleMarkerClick();
-
   }
 
   clearMarker(){
