@@ -15,31 +15,21 @@ class Flickr {
       dataType: "json",
 
       success: function (data, status) {
-      /* get rid of later */
-        console.log("flickr data: ", data);
-        console.log("flickr success status: ", status);
-
         this.filePath = data.photos.photo[0];
         this.flickrFarm = this.filePath["farm"];
         this.flickrServer = this.filePath["server"];
         this.flickrID = this.filePath["id"];
         this.flickrSecret = this.filePath["secret"];
 
-        /* get rid of later */
-        this.flickerTitle = this.filePath["title"];
-        console.log("title: ", this.flickerTitle);
-
         this.render();
-
       }.bind(this),
 
       error: function (data, status) {
-        console.log("flickr error status: ", status)
       }
+
     }
     $.ajax(ajaxConfigObject);
   }
-
 
   render() {
     this.flickrDiv.empty();
