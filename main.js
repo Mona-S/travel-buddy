@@ -1,6 +1,5 @@
 $(document).ready(initializeApp);
 
-
 function initializeApp(){
     let gmap = new GoogleMaps('Irvine');
     gmap.initMap();
@@ -8,7 +7,6 @@ function initializeApp(){
     yelp.getYelpData();
     const weather = new Weather;
     const flickr = new Flickr;
-    
     $("#flickrAndWeather").on("click", function(){
       yelp.location = flickr.cityInput  = weather.cityInput = $("#cityInput").val();
         gmap = new GoogleMaps($("#cityInput").val());
