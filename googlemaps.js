@@ -1,7 +1,7 @@
 class GoogleMaps{
   constructor(address){
-    this.lat;
-    this.lng;
+    this.lat = null;
+    this.lng = null;
     this.map = map;
     this.address = address;
     this.initMap = this.initMap.bind(this);
@@ -26,7 +26,6 @@ class GoogleMaps{
         this.map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: this.lat , lng: this.lng},
           zoom: 10});
-
         this.addMarker();
         this.addEventHandler();
 
@@ -54,14 +53,24 @@ class GoogleMaps{
   }
 
   handleMarkerClick(){
+    this.map.setZoom(12);
+    this.map.setCenter(this.marker.getPosition());
+}
+    
+  }
+
+  handleMarkerClick(){
     map.setZoom(8);
     map.setCenter(this.marker.getposition());
   }
+
 
   handleMapClick(event){
     this.lat = event.latLng.lat();
     this.lng = event.latLng.lng();
     this.addMarker();
+    this.handleMarkerClick();
+
   }
 
   clearMarker(){
