@@ -18,17 +18,14 @@ class Weather {
       },
 
     success: function( data, status) {
-      console.log("weather data: ", data);
-      console.log("weather success status: ", status);
-
       this.weatherCity = data.name;
       this.mainTemp = data.main.temp + "f";
       this.mainWeather = data.weather[0].main;
 
       this.render();
       }.bind(this),
+
       error: function( data, status) {
-        console.log("weather error status: ", status);
       }
     }
     $.ajax(ajaxConfigObject)
@@ -36,13 +33,15 @@ class Weather {
 
   render() {
     this.weatherDiv.empty();
-
-    this.weatherContainer = $("<p>");
+    this.displayWeather = $("<span>").text("Current Weather: ").css({
+      "padding-right": "10px"
+    });
+    this.spacingContainer = $("<span>").text("   |   ").css({
+      "padding-left": "10px",
+      "padding-right": "10px",
+    });
     this.weatherConditionContainer = $("<p>");
-
-    this.weatherContainer.append(`${this.weatherCity} | IMG`);
-    this.weatherConditionContainer.append(`${this.mainTemp} | ${this.mainWeather}`);
-
+    this.weatherConditionContainer.append(this.displayWeather, this.mainTemp, this.spacingContainer, this.mainWeather);
     this.weatherDiv.append(this.weatherContainer, this.weatherConditionContainer);
   }
 }

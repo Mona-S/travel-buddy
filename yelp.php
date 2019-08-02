@@ -1,7 +1,5 @@
 <?php
-//questions?  Ask Dan Paschal daniel.paschal@learningfuze.com
 $proxyURL = "https://api.yelp.com/v3/businesses/search";
-//$proxyURL = "https://api.fortnitetracker.com/v1/profile/{$_GET['platform']}/{$_GET['player']}";
 $acceptableHeaders = ['Authorization'];
 
 header("Access-Control-Allow-Origin: *");

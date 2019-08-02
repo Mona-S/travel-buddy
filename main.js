@@ -11,6 +11,7 @@ function initializeApp(){
       yelp.location = flickr.cityInput  = weather.cityInput = $("#cityInput").val();
         gmap = new GoogleMaps($("#cityInput").val());
         gmap.initMap();
+//         yelp.location = $("#cityInput").val();
         weather.getWeather();
         flickr.getFlickr();
         yelp.getLocationData();

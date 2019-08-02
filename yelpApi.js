@@ -10,13 +10,14 @@ class Yelp{
         this.price = '';
         this.rating = '';
         this.image = null;
-        
     }
+
     getLocationData(){
         this.lat = null;
         this.lng = null;
         this.getYelpData();
     }
+
     getYelpData(){
         const api = 'M3S7kd9LGDSgQq4a-CGJfRTTp6RbPZRmqvCO4-fsTFctm92rRn94jm7jSchf0Jnfg4o_OhR4MpeZN7x3mdt6Rhn7v2mz4aFGBGNsaNDaA37z7DCpEfMKnK6mAhVCXXYx'
         $.ajax({
@@ -30,14 +31,12 @@ class Yelp{
                location: this.location,
                latitude: this.lat,
                longitude: this.lng,
-               term: this.term 
+               term: this.term
             }
         }).done( (data, status, jqXHR) => {
-            console.log(data, status);
             $('.yelp').empty();
             for (let b of data.businesses){
                 this.image = b.image_url;
-                console.log(this.image);
                 this.name = b.name;
                 this.phone = b.phone;
                 this.price = b.price;
@@ -50,13 +49,12 @@ class Yelp{
                 businessContainerClone.find('.price').text('Price '+ this.price);
                 businessContainerClone.find('.rating').text('Rating: ' + this.rating);
                 businessContainerClone.find('.locationInfo').text(this.location);
-                
+
                 $('.yelp').append(businessContainerClone);
             }
         }).fail((jqXHR, textStatus, errorThrown) => console.log(jqXHR, textStatus, errorThrown) )
         .always( (data, textStatus, jqXHR) => console.log("Promise Completion Callback", data, textStatus, jqXHR))
     }
     render(){
-        //
     }
 }
