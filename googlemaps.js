@@ -7,7 +7,7 @@ class GoogleMaps{
     this.initMap = this.initMap.bind(this);
     this.addEventHandler = this.addEventHandler.bind(this);
     this.handleMapClick = this.handleMapClick.bind(this);
-    this.clearMarker = this.clearMarker.bind(this);
+    //this.clearMarker = this.clearMarker.bind(this);
     this.marker = null;
     this.addMarker = this.addMarker.bind(this);
   }
@@ -23,6 +23,7 @@ class GoogleMaps{
         var position = results[0].geometry.location;
         this.lat = position.lat();
         this.lng  = position.lng();
+        console.log("position",position);
         this.map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: this.lat , lng: this.lng},
           zoom: 10});
@@ -39,7 +40,7 @@ class GoogleMaps{
     if(this.marker){this.setMapOnAll(null)};
     const marker = new google.maps.Marker({
         position: {lat: this.lat, lng: this.lng},
-    map: this.map
+        map: this.map
   });
     this.marker = marker;
   }
@@ -64,8 +65,8 @@ class GoogleMaps{
     this.handleMarkerClick();
   }
 
-  clearMarker(){
-      setMapOnAll(null);
-  }
+  // clearMarker(){
+  //     setMapOnAll(null);
+  // }
 
 }
