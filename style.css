@@ -1,4 +1,3 @@
-
   html, body {
     display: inline-block;
     height: 100vh;
@@ -16,12 +15,10 @@
     display: inline-block;
     float: left;
     position: relative;
-
   }
 
   #map {
-    height: 95%;
-    
+    height: 94%;
   }
 
   #cityInput{
@@ -38,15 +35,10 @@
     display: inline-block;
     font-size: 15px;
     border: 1px solid black;
-
-
   }
 
   .search{
     display: inline-block;
-    
-
-
   }
 
   .container2{
@@ -57,14 +49,19 @@
     margin-left: 0%;
     display: inline-block;
     float: right;
-    
     font-family: cursive,sans-serif;
     position: absolute;
-
+    border: 1px solid black;
   }
+
   .flickr{
     height: 20%;
     width:100%;
+    background-image: url("./images/irvine-spectrum-center-irvine-ca.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid black;
   }
 
   .weather{
@@ -73,12 +70,12 @@
     background-size: cover;
     background-position: center;
     margin-left: 10%;
-    
+    font-family: cursive,sans-serif;
+    font-size: 100%;
   }
 
   .yelp{
-    
-    height: 80vh;
+    height: 78vh;
     overflow-y: scroll;
     width:100%;
     margin-top: 0%;
@@ -87,6 +84,7 @@
   #templates{
     display: none;
   }
+
   .businessContainer{
     border-bottom: 1px solid black;
     height: 20vh;
@@ -95,32 +93,38 @@
     font-size: 1rem;
     text-align: center;
   }
+
   .businessContainer .name{
     font-weight: bold;
     font-size: 120%;
   }
+
   .businessContainer:nth-child(even){
     background-color: lightgrey;
   }
+
   .businessContainer .priceRatingContainer{
     display: flex;
   }
+
   .priceRatingContainer > *{
     width: 100%;
-   
   }
+
   .businessContainer .locationInfo{
     font-weight: bold;
-   
   }
+
   .imageContainer{
     height: 20vmin;
     width: 20vmin;
     background-size: 100% 100%;
     float: left;
   }
+
   .flickrImage {
     height: 100%;
     width: 100%;
-    background-size: contain
+    background-repeat: no-repeat;
+    background-size: cover;
   }
