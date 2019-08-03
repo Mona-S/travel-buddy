@@ -13,6 +13,8 @@ class GoogleMaps{
   }
 
   getLatLng(){
+    console.log("lat: ", this.lat);
+    console.log("lng: ", this.lng);
     return {lat: this.lat, lng: this.lng};
   }
 
@@ -42,6 +44,8 @@ class GoogleMaps{
     map: this.map
   });
     this.marker = marker;
+    console.log("addMarker() lat: ", this.lat);
+    console.log("addMarker() lng: ", this.lng);
   }
 
   setMapOnAll(map) {
@@ -56,12 +60,18 @@ class GoogleMaps{
     this.map.setZoom(12);
     this.map.setCenter(this.marker.getPosition());
 }
-    
+
   handleMapClick(event){
     this.lat = event.latLng.lat();
     this.lng = event.latLng.lng();
     this.addMarker();
     this.handleMarkerClick();
+
+    console.log("handleMapClick() lat: ", this.lat);
+    console.log("handleMapClick() lng: ", this.lng);
+
+    const testFlickr = new Flickr;
+    testFlickr.getFLickrWithMap(this.lat, this.lng);
   }
 
   clearMarker(){
