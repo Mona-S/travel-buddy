@@ -15,6 +15,8 @@ class GoogleMaps{
   }
 
   getLatLng(){
+    console.log("lat: ", this.lat);
+    console.log("lng: ", this.lng);
     return {lat: this.lat, lng: this.lng};
   }
 
@@ -34,7 +36,7 @@ class GoogleMaps{
 
       } else {
         alert('Geocode was not successful for the following reason: ' + status);
-      }  
+      }
     }.bind(this));
   }
 
@@ -45,6 +47,8 @@ class GoogleMaps{
     map: this.map
   });
     this.marker = marker;
+    console.log("addMarker() lat: ", this.lat);
+    console.log("addMarker() lng: ", this.lng);
   }
 
   setMapOnAll(map) {
@@ -57,9 +61,9 @@ class GoogleMaps{
 
   handleMarkerClick(){
     this.map.setZoom(12);
-    this.map.setCenter(this.marker.getPosition());   
+    this.map.setCenter(this.marker.getPosition());
 }
-    
+
   handleMapClick(event){
     this.lat = event.latLng.lat();
     this.lng = event.latLng.lng();
@@ -70,6 +74,7 @@ class GoogleMaps{
     // testFlickr.getFLickrWithMap(this.lat, this.lng);
 
     this.onLocationChange(this.lat, this.lng);
+
   }
 
   clearMarker(){
