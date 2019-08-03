@@ -65,6 +65,10 @@ class GoogleMaps{
     this.lng = event.latLng.lng();
     this.addMarker();
     this.handleMarkerClick();
+
+    // const testFlickr = new Flickr;
+    // testFlickr.getFLickrWithMap(this.lat, this.lng);
+
     this.onLocationChange(this.lat, this.lng);
   }
 
