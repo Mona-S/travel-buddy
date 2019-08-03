@@ -13,7 +13,7 @@ class GoogleMaps{
   }
 
   getLatLng(){
-    return [this.lat, this.lng];
+    return {lat: this.lat, lng: this.lng};
   }
 
   initMap(){
