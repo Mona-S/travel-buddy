@@ -1,8 +1,9 @@
 class GoogleMaps{
-  constructor(address){
+  constructor(address, onLocationChange){
     this.lat = null;
     this.lng = null;
     this.map = map;
+    this.results = null;
     this.address = address;
     this.initMap = this.initMap.bind(this);
     this.addEventHandler = this.addEventHandler.bind(this);
@@ -10,6 +11,7 @@ class GoogleMaps{
     this.clearMarker = this.clearMarker.bind(this);
     this.marker = null;
     this.addMarker = this.addMarker.bind(this);
+    this.onLocationChange = onLocationChange;
   }
 
   getLatLng(){
@@ -22,6 +24,7 @@ class GoogleMaps{
     var geocoder = new google.maps.Geocoder()
     geocoder.geocode({'address': this.address}, function(results, status) {
       if (status === 'OK') {
+        this.results = results;
         var position = results[0].geometry.location;
         this.lat = position.lat();
         this.lng  = position.lng();
@@ -67,11 +70,11 @@ class GoogleMaps{
     this.addMarker();
     this.handleMarkerClick();
 
-    console.log("handleMapClick() lat: ", this.lat);
-    console.log("handleMapClick() lng: ", this.lng);
-
     const testFlickr = new Flickr;
     testFlickr.getFLickrWithMap(this.lat, this.lng);
+
+    this.onLocationChange(this.lat, this.lng);
+
   }
 
   clearMarker(){

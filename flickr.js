@@ -6,9 +6,8 @@ class Flickr {
     this.flickrKey = "519af7a34f396e6aa28316470a83ca88";
     this.flickrDiv = $(".flickr");
     this.getFlickr = this.getFlickr.bind(this);
-    this.lat = null;
-    this.lng = null;
   }
+
 
   getFlickr() {
     let ajaxConfigObject = {
