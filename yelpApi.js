@@ -55,6 +55,4 @@ class Yelp{
         }).fail((jqXHR, textStatus, errorThrown) => console.log(jqXHR, textStatus, errorThrown) )
         .always( (data, textStatus, jqXHR) => console.log("Promise Completion Callback", data, textStatus, jqXHR))
     }
-    render(){
-    }
 }
