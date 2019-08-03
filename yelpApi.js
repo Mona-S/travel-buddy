@@ -42,6 +42,9 @@ class Yelp{
                 this.price = b.price;
                 this.rating = b.rating;
                 this.location = b.location.address1;
+                if (this.price === undefined){
+                    
+                }
                 const businessContainerClone = $("#templates > .businessContainer").clone();
                 businessContainerClone.find('.imageContainer').css('background-image', `url(${this.image})`);
                 businessContainerClone.find('.name').text(this.name);
