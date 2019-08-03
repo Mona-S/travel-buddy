@@ -1,9 +1,6 @@
 class Yelp{
-    constructor(lat, lng, location){
-        this.data = {};
-        this.location = location;
-        this.lat = lat;
-        this.lng = lng;
+    constructor(){
+        // this.data = {};
         this.term = '';
         this.name = '';
         this.phone = '';
@@ -12,13 +9,23 @@ class Yelp{
         this.image = null;
     }
 
-    getLocationData(){
-        this.lat = null;
-        this.lng = null;
-        this.getYelpData();
+    getLocationData(location){
+        const data = {
+            location: location
+        }
+        this.getYelpData(data);
     }
 
-    getYelpData(){
+    getLatLngData(lat, lng){
+        const data = {
+            latitude: lat,
+            longitude: lng,
+        }
+        this.getYelpData(data);
+    }
+
+    getYelpData(data){
+        console.log(data, "DATA");
         const api = 'M3S7kd9LGDSgQq4a-CGJfRTTp6RbPZRmqvCO4-fsTFctm92rRn94jm7jSchf0Jnfg4o_OhR4MpeZN7x3mdt6Rhn7v2mz4aFGBGNsaNDaA37z7DCpEfMKnK6mAhVCXXYx'
         $.ajax({
             dataType: 'json',
@@ -27,14 +34,10 @@ class Yelp{
             headers: {
                 "Authorization": "Bearer M3S7kd9LGDSgQq4a-CGJfRTTp6RbPZRmqvCO4-fsTFctm92rRn94jm7jSchf0Jnfg4o_OhR4MpeZN7x3mdt6Rhn7v2mz4aFGBGNsaNDaA37z7DCpEfMKnK6mAhVCXXYx"
             },
-            data: {
-               location: this.location,
-               latitude: this.lat,
-               longitude: this.lng,
-               term: this.term
-            }
+            data: data
         }).done( (data, status, jqXHR) => {
             $('.yelp').empty();
+            console.log(data, "DONE");
             for (let b of data.businesses){
                 this.image = b.image_url;
                 this.name = b.name;
@@ -43,7 +46,7 @@ class Yelp{
                 this.rating = b.rating;
                 this.location = b.location.address1;
                 if (this.price === undefined){
-                    
+
                 }
                 const businessContainerClone = $("#templates > .businessContainer").clone();
                 businessContainerClone.find('.imageContainer').css('background-image', `url(${this.image})`);
@@ -55,7 +58,6 @@ class Yelp{
 
                 $('.yelp').append(businessContainerClone);
             }
-        }).fail((jqXHR, textStatus, errorThrown) => console.log(jqXHR, textStatus, errorThrown) )
-        .always( (data, textStatus, jqXHR) => console.log("Promise Completion Callback", data, textStatus, jqXHR))
+        }).fail((jqXHR, textStatus, errorThrown) => console.log(textStatus, errorThrown))
     }
 }

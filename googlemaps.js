@@ -1,8 +1,9 @@
 class GoogleMaps{
-  constructor(address){
+  constructor(address, onLocationChange){
     this.lat = null;
     this.lng = null;
     this.map = map;
+    this.results = null;
     this.address = address;
     this.initMap = this.initMap.bind(this);
     this.addEventHandler = this.addEventHandler.bind(this);
@@ -10,6 +11,7 @@ class GoogleMaps{
     this.clearMarker = this.clearMarker.bind(this);
     this.marker = null;
     this.addMarker = this.addMarker.bind(this);
+    this.onLocationChange = onLocationChange;
   }
 
   getLatLng(){
@@ -20,6 +22,7 @@ class GoogleMaps{
     var geocoder = new google.maps.Geocoder()
     geocoder.geocode({'address': this.address}, function(results, status) {
       if (status === 'OK') {
+        this.results = results;
         var position = results[0].geometry.location;
         this.lat = position.lat();
         this.lng  = position.lng();
@@ -31,7 +34,7 @@ class GoogleMaps{
 
       } else {
         alert('Geocode was not successful for the following reason: ' + status);
-      }
+      }  
     }.bind(this));
   }
 
@@ -54,7 +57,7 @@ class GoogleMaps{
 
   handleMarkerClick(){
     this.map.setZoom(12);
-    this.map.setCenter(this.marker.getPosition());
+    this.map.setCenter(this.marker.getPosition());   
 }
     
   handleMapClick(event){
@@ -62,6 +65,7 @@ class GoogleMaps{
     this.lng = event.latLng.lng();
     this.addMarker();
     this.handleMarkerClick();
+    this.onLocationChange(this.lat, this.lng);
   }
 
   clearMarker(){

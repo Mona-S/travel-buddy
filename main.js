@@ -1,18 +1,22 @@
 $(document).ready(initializeApp);
-
+var gmap;
 function initializeApp(){
-    let gmap = new GoogleMaps('Irvine');
-    gmap.initMap();
-    const yelp = new Yelp(33.6 , -117, "Irvine");
-    yelp.getYelpData();
-    const weather = new Weather;
-    const flickr = new Flickr;
+  const yelp = new Yelp();
+  yelp.getLocationData("Irvine");  
+  gmap = new GoogleMaps('Irvine', (lat, lng) => {
+    yelp.getLatLngData(lat, lng);
+  });
+  gmap.initMap();
+  const weather = new Weather;
+  const flickr = new Flickr;
     $("#flickrAndWeather").on("click", function(){
-      yelp.location = flickr.cityInput  = weather.cityInput = $("#cityInput").val();
-        gmap = new GoogleMaps($("#cityInput").val());
+      let searchTerm = $("#cityInput").val();
+      gmap.address = flickr.cityInput  = weather.cityInput = searchTerm;
+        // gmap = new GoogleMaps(searchTerm);
         gmap.initMap();
         weather.getWeather();
         flickr.getFlickr();
-        yelp.getLocationData();
+        yelp.getLocationData(searchTerm);
+        // yelp.getYelpData();
     });
 }
