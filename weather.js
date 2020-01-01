@@ -18,6 +18,7 @@ class Weather {
       },
 
     success: function( data, status) {
+      console.log("data", data);
       this.weatherCity = data.name;
       this.mainTemp = data.main.temp + "f";
       this.mainWeather = data.weather[0].main;

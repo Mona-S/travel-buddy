@@ -4,8 +4,10 @@ function initializeApp(){
   const yelp = new Yelp();
   yelp.getLocationData("Irvine");  
   gmap = new GoogleMaps('Irvine', (lat, lng) => {
+    
     yelp.getLatLngData(lat, lng);
     flickr.getFLickrWithMap(lat, lng);
+
   });
   gmap.initMap();
   const weather = new Weather;
