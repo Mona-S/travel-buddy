@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Travel Buddy</title>
+    <link rel="stylesheet" type = "text/css" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="weather.js"></script>
+    <script src="flickr.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIKytzrG57gxZjQUH6wg2gZq5DBCDylYU"></script>
+    <script src="googlemaps.js"></script>
+    <script src="yelpApi.js"> </script>
+    <script src="main.js"> </script>
+    <script></script>
+</head>
+
+<body>
+    <div id="mainDiv">
+        <div class=container1>
+                <input id="cityInput" type="text" placeholder="Search a location">
+                <button id="flickrAndWeather">Submit</button>
+                <div class="weather"></div>
+                <div id="map"></div>
+                <div class="search"></div>
+            </div>
+            <div class="container2">
+                <div class="flickr"></div>
+                <div class="yelp"></div>
+            </div>
+            <div id="templates">
+                <div class="businessContainer">
+                    <div class="imageContainer">  </div>
+                    <div class="name">business name</div>
+                    <div class="phone">phone</div>
+                    <div class="priceRatingContainer">
+                        <div class="price">price</div>
+                        <div class="rating">rating</div>
+                    </div>
+                    <div class="locationInfo">location</div>
+                </div>
+            </div>
+    </div>
+
+</body>
+
+</html>
